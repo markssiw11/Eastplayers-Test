@@ -19,7 +19,8 @@ export const theme = {
     secondary: '#636271',
     background: '#ffffff',
     buttonSurface: '#FDE9E7',
-    text: "#000000"
+    text: "#000000",
+    border: "#EAEAEA"
   },
   shadow: {
     shadowColor: "#000",

@@ -8,6 +8,8 @@ import {createNativeStackNavigator, NativeStackNavigationOptions} from '@react-n
 //
 import Home from '../containers/home';
 import ToDo from '../containers/todoScreen';
+import Country from '../containers/countryScreen';
+
 //
 import {navigationRef} from './RootNavigation';
 //
@@ -44,6 +46,7 @@ function App() {
         }}>
         <Stack.Screen name={ROUTE_NAME.Home} component={Home} options={options} />
         <Stack.Screen name={ROUTE_NAME.Todo} component={ToDo} options={options} />
+        <Stack.Screen name={ROUTE_NAME.Country} component={Country} options={options} />
 
       </Stack.Navigator>
     </NavigationContainer>

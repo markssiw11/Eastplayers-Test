@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
+    "lodash.debounce": "^4.0.8",
     "react": "17.0.2",
     "react-native": "0.67.2",
     "react-native-safe-area-context": "^3.3.2",
@@ -21,6 +22,7 @@
     "@babel/core": "^7.17.2",
     "@babel/runtime": "^7.17.2",
     "@react-native-community/eslint-config": "^3.0.1",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^17.0.39",
     "@types/react-native": "^0.66.15",
     "babel-jest": "^27.5.1",

@@ -38,9 +38,11 @@ export const HOME_DATA: HomeDataItemI[] = [
     },
     {
         id: '3',
-        label: ROUTE_LABEL.Country,
+        label: ROUTE_LABEL.ImageGallery,
         onPress: () => navigate(ROUTE_NAME.ImageGallery)
     }
 ]
 
 export const HOME_CIRCLE_SIZE = 38;
+
+export const BASE_URL = "https://restcountries.com"
