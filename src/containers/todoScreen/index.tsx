@@ -107,6 +107,7 @@ const TextInputField = ({onAddItem}: TextInputFieldI) => {
         placeholder="Search"
         placeholderTextColor="#BBBCC5"
         onChangeText={onChangeText}
+        
       />
       <TouchableOpacity onPress={_onAddItem}>
         <Text style={styles.add}>Add</Text>
@@ -131,9 +132,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#EFEFEF',
     borderRadius: theme.borderRadius.s,
-    padding: theme.spacing.xs,
     flexDirection: 'row',
     alignItems: "center",
+    paddingHorizontal: theme.spacing.xs
   },
   textInput: {
     flex: 1,
