@@ -25,6 +25,7 @@ function ImageGalleryScreen() {
         renderItem={RenderItem}
         numColumns={3}
         showsVerticalScrollIndicator={false}
+        columnWrapperStyle={{}}
       />
     </View>
   );
@@ -36,8 +37,8 @@ const RenderItem = ({item}: {item: ItemI}) => {
       navigate(ROUTE_NAME.ImageGalleryPreview, item);
   }
   return (
-    <TouchableOpacity style={styles.imageContainer} onPress={onPress} >
-      <Image resizeMode="cover" source={image} style={styles.image} />
+    <TouchableOpacity onPress={onPress} >
+      <Image resizeMode="stretch" source={image} style={styles.image} />
     </TouchableOpacity>
   );
 };
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
   },
   imageContainer: {
-    flex: 1,
   },
   image: {
     height: width / 3,

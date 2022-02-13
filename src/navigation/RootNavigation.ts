@@ -1,7 +1,5 @@
-// RootNavigation.js
 
-import * as React from 'react';
-import {createNavigationContainerRef, ParamListBase} from '@react-navigation/native';
+import {createNavigationContainerRef} from '@react-navigation/native';
 import { ImageSourcePropType } from 'react-native';
 export type RootStackParamList = {
     Home: undefined;
@@ -26,12 +24,6 @@ export function navigate(name: keyof RootStackParamList, params?: any) {
   }
 }
 
-export function resetStack(name: string, params: ParamListBase) {
-  navigationRef.resetRoot({
-    index: 0,
-    routes: [{name, params}],
-  });
-}
 
 export function goBack() {
   navigationRef.current?.goBack();

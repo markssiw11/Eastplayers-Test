@@ -10,22 +10,13 @@ import {
   NativeScrollEvent,
   TouchableOpacity,
   Animated,
-  Modal,
+  TouchableWithoutFeedback
 } from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {
-  PinchGestureHandler,
-  HandlerStateChangeEvent,
-  PinchGestureHandlerEventPayload,
-  State,
-  TouchableWithoutFeedback,
-  GestureDetector
-} from 'react-native-gesture-handler';
-import ImageViewer from 'react-native-image-zoom-viewer';
+
 import {
   ImageGalleryItemI,
   IMAGE_GALLERY_DATA,
-  ROUTE_NAME,
 } from '../../dataConfig';
 import {RootStackParamList} from '../../navigation/RootNavigation';
 import {theme} from '../../utils/Theme';
@@ -36,12 +27,11 @@ interface ItemI {
   id: string;
   image: ImageSourcePropType;
 }
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 function PreviewScreen({route}: Props) {
   const {id} = route.params;
   const topRef = React.useRef<any>();
   const thumbRef = React.useRef<any>();
-  const lastTap = React.useRef(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [openModal, setOpenModal] = React.useState(false);
   React.useEffect(() => {
@@ -71,53 +61,24 @@ function PreviewScreen({route}: Props) {
       });
     }
   };
-  const handleDoubleTap = () => {
-    const now = Date.now();
-    const DOUBLE_PRESS_DELAY = 300;
-    if (lastTap.current && now - lastTap.current < DOUBLE_PRESS_DELAY) {
+  const onPressItem = () => {
       setOpenModal(true);
-    } else {
-      lastTap.current = now;
-    }
   };
   const RenderItem = ({item}: {item: ImageGalleryItemI}) => {
     const {image} = item;
-    const scale = new Animated.Value(1);
-    const onGestureEvent = Animated.event(
-      [
-        {
-          nativeEvent: {scale},
-        },
-      ],
-      {
-        useNativeDriver: true,
-      },
-    );
-    const onHandlerStateChange = (
-      event: HandlerStateChangeEvent<PinchGestureHandlerEventPayload>,
-    ) => {
-      if (event.nativeEvent.oldState === State.ACTIVE) {
-        Animated.spring(scale, {
-          toValue: 1,
-          useNativeDriver: true,
-        }).start();
-      }
-    };
+  
     return (
-      <PinchGestureHandler
-        onGestureEvent={onGestureEvent}
-        onHandlerStateChange={onHandlerStateChange}>
-        <TouchableWithoutFeedback
-          onPress={handleDoubleTap}
-          style={styles.imageContainer}>
-          <Animated.Image
-            source={image}
-            style={[styles.image, {transform: [{scale}]}]}
-          />
-        </TouchableWithoutFeedback>
-      </PinchGestureHandler>
+      <TouchableWithoutFeedback
+        onPress={onPressItem}
+        >
+        <Image
+          source={image}
+          style={styles.image}
+        />
+      </TouchableWithoutFeedback>
     );
   };
+
   const onClose = () => {
     setOpenModal(false);
   };
@@ -136,9 +97,8 @@ function PreviewScreen({route}: Props) {
         pagingEnabled
         horizontal
         onMomentumScrollEnd={onMomentumScrollEnd}
-        onEndReachedThreshold={0.01}
-        scrollEventThrottle={16}
         initialNumToRender={20}
+        contentContainerStyle={styles.imageContainer}
       />
       <FlatList
         ref={thumbRef}
@@ -160,6 +120,7 @@ function PreviewScreen({route}: Props) {
     </View>
   );
 }
+
 const IMAGE_SIZE = 80;
 const RenderPreviewImage = ({
   item,
@@ -189,14 +150,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
     justifyContent: 'center',
+    alignItems: "center",
+    
   },
   imageContainer: {
-    flex: 1,
     justifyContent: 'center',
-    bottom: 100,
+    alignItems: "center",
+    bottom: 75
   },
   image: {
     width: width,
+    height: width - 125
   },
 });
 export default PreviewScreen;

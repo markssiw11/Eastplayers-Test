@@ -9,20 +9,20 @@ import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   FlatList,
-  SafeAreaView
+  SafeAreaView,
+  Platform,
 } from 'react-native';
 import debounce from 'lodash.debounce';
 import {theme} from '../../utils/Theme';
 import LoadingBar from '../../components/LoadingBar';
 import Diver from '../../components/Diver';
-import { BASE_URL } from '../../dataConfig';
+import {BASE_URL} from '../../dataConfig';
 
 interface SearchBarI {
-    onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+  onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
 }
 
 function CountryScreen() {
-  const [searchKey, setSearchKey] = React.useState('');
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
@@ -48,9 +48,9 @@ function CountryScreen() {
         setLoading(false);
       });
   };
-  const debounceGetData = React.useCallback(
-    debounce((nextValue: string) => getDataApi(nextValue), 500),
-    [searchKey],
+  const debounceGetData = debounce(
+    (nextValue: string) => getDataApi(nextValue),
+    500,
   );
   return (
     <SafeAreaView style={styles.container}>
@@ -74,7 +74,6 @@ const RenderItem = ({item}: any) => {
     </View>
   );
 };
-
 
 const SearchBar = ({onChange}: SearchBarI) => {
   return (
@@ -103,10 +102,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#EFEFEF',
     borderRadius: theme.borderRadius.s,
-    padding: theme.spacing.xs,
+    paddingHorizontal: theme.spacing.xs,
     flexDirection: 'row',
     margin: theme.spacing.m,
     alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        paddingVertical: theme.spacing.s
+      }
+    })
   },
   textInput: {
     flex: 1,

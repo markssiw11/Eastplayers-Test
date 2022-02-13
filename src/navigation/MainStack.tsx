@@ -3,10 +3,13 @@
 import * as React from 'react';
 import {StyleSheet} from 'react-native';
 //
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  ParamListBase,
+  RouteProp,
+} from '@react-navigation/native';
 import {
   createNativeStackNavigator,
-  NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 // screen
 import Home from '../containers/home';
@@ -16,7 +19,7 @@ import ImageGallery from '../containers/imageGalleryScreen';
 import ImageGalleryPreview from '../containers/imageGalleryScreen/Preview';
 
 //
-import {navigationRef} from './RootNavigation';
+import {navigationRef, RootStackParamList} from './RootNavigation';
 //
 import {theme} from '../utils/Theme';
 import {ROUTE_LABEL, ROUTE_NAME} from '../dataConfig';
@@ -42,7 +45,6 @@ function App() {
             headerTitleStyle: styles.headerStyle,
             headerMode: 'screen',
             headerTintColor: theme.colors.primary,
-            headerTitle: ROUTE_LABEL[name],
             headerStyle: {
               backgroundColor: theme.colors.background,
             },
@@ -52,35 +54,45 @@ function App() {
         <Stack.Screen
           name={ROUTE_NAME.Home}
           component={Home}
-          options={{...options, title: ROUTE_LABEL.Home}}
+          options={getOptions}
         />
         <Stack.Screen
           name={ROUTE_NAME.Todo}
           component={ToDo}
-          options={{...options, title: ROUTE_LABEL.ToDo}}
+          options={getOptions}
         />
         <Stack.Screen
           name={ROUTE_NAME.Country}
           component={Country}
-          options={{...options, title: ROUTE_LABEL.Country}}
+          options={getOptions}
         />
         <Stack.Screen
           name={ROUTE_NAME.ImageGallery}
           component={ImageGallery}
-          options={{...options, title: ROUTE_LABEL.ImageGallery}}
+          options={getOptions}
         />
         <Stack.Screen
           name={ROUTE_NAME.ImageGalleryPreview}
           component={ImageGalleryPreview}
-          options={{...options, title: ROUTE_LABEL.ImageGalleryPreview}}
+          options={getOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-const options: NativeStackNavigationOptions = {
-  headerShadowVisible: false,
+const getOptions = ({
+  route,
+}: {
+  route: RouteProp<ParamListBase, keyof RootStackParamList>;
+}) => {
+  const {name} = route;
+
+  return {
+    headerShadowVisible: false,
+    title: ROUTE_LABEL[name],
+  };
 };
+
 const styles = StyleSheet.create({
   headerStyle: {
     fontSize: theme.fontSize.m,

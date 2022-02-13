@@ -10,7 +10,8 @@ function HeaderLeft({routeName}: HeaderLeftI) {
   if (routeName === ROUTE_NAME.Home) return <View />;
   return (
     <TouchableOpacity
-      hitSlop={{top: 5, right: 0, bottom: 0, left: 5}}
+      hitSlop={{top: 5, right: 5, bottom: 5, left: 5}}
+      style={styles.container}
       onPress={goBack}>
       <Image
         resizeMode="cover"
@@ -25,5 +26,8 @@ const styles = StyleSheet.create({
     width: 10,
     height: 18,
   },
+  container: {
+    paddingRight: 10
+  }
 });
 export default HeaderLeft;

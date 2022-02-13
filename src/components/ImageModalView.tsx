@@ -27,7 +27,7 @@ const ImageModalView = ({visible, image, onClose}: ImageModalViewI) => {
       },
       url: '',
       width,
-      height: height,
+      height: width,
     },
   ];
   return (
@@ -38,7 +38,7 @@ const ImageModalView = ({visible, image, onClose}: ImageModalViewI) => {
           imageUrls={imageUrls}
           onSwipeDown={onClose}
           enableImageZoom={true}
-          onDoubleClick={onClose}
+          onClick={onClose}
           style={styles.image}
         />
       </View>

@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.colors.background,
     borderRadius: theme.borderRadius.s,
-    marginBottom: 20,
+    marginVertical: 10,
     marginHorizontal: 16,
     ...theme.shadow,
   },
