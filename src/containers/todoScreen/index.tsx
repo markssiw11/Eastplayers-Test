@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     paddingVertical: 8,
-    lineHeight: 21
   },
   add: {
     color: theme.colors.primary,
