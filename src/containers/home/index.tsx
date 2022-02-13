@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     color: theme.colors.secondary,
     fontWeight: 'bold',
     flex: 1,
+    fontFamily: "Nunito"
   },
   icon: {
     width: 6,
