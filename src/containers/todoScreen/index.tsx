@@ -146,11 +146,13 @@ const styles = StyleSheet.create({
     color: theme.colors.primary,
     fontWeight: 'bold',
     paddingHorizontal: theme.spacing.xs,
+    fontFamily: "Nunito"
   },
   title: {
     color: theme.colors.text,
     fontWeight: '700',
     paddingVertical: theme.spacing.s,
+    fontFamily: "Nunito"
   },
   doneText: {
     color: theme.colors.primary,

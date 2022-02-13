@@ -90,6 +90,7 @@ const getOptions = ({
   return {
     headerShadowVisible: false,
     title: ROUTE_LABEL[name],
+    
   };
 };
 
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
   headerStyle: {
     fontSize: theme.fontSize.m,
     fontWeight: '800',
+    fontFamily: "Nunito"
   },
 });
 export default App;
