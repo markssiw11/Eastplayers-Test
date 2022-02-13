@@ -13,10 +13,10 @@ import {
   Platform,
 } from 'react-native';
 import debounce from 'lodash.debounce';
-import {theme} from '../../utils/Theme';
-import LoadingBar from '../../components/LoadingBar';
-import Diver from '../../components/Diver';
-import {BASE_URL} from '../../dataConfig';
+import {theme} from 'utils/Theme';
+import LoadingBar from 'components/LoadingBar';
+import Diver from 'components/Diver';
+import {BASE_URL} from 'dataConfig';
 
 interface SearchBarI {
   onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;

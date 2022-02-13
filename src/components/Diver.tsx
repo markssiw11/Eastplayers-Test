@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle, ColorValue} from 'react-native';
-import {theme} from '../utils/Theme';
+import {View, StyleSheet, ColorValue} from 'react-native';
+import {theme} from 'utils/Theme';
 interface DiverI {
   color?: ColorValue | undefined;
 }

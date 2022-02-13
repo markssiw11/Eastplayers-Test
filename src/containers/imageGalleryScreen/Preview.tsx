@@ -9,7 +9,6 @@ import {
   NativeSyntheticEvent,
   NativeScrollEvent,
   TouchableOpacity,
-  Animated,
   TouchableWithoutFeedback
 } from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -17,10 +16,10 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {
   ImageGalleryItemI,
   IMAGE_GALLERY_DATA,
-} from '../../dataConfig';
-import {RootStackParamList} from '../../navigation/RootNavigation';
-import {theme} from '../../utils/Theme';
-import ImageModalView from '../../components/ImageModalView';
+} from 'dataConfig';
+import {RootStackParamList} from 'navigation/RootNavigation';
+import {theme} from 'utils/Theme';
+import ImageModalView from 'components/ImageModalView';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ImageGalleryPreview'>;
 interface ItemI {

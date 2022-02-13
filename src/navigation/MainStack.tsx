@@ -12,18 +12,18 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 // screen
-import Home from '../containers/home';
-import ToDo from '../containers/todoScreen';
-import Country from '../containers/countryScreen';
-import ImageGallery from '../containers/imageGalleryScreen';
-import ImageGalleryPreview from '../containers/imageGalleryScreen/Preview';
+import Home from 'containers/home';
+import ToDo from 'containers/todoScreen';
+import Country from 'containers/countryScreen';
+import ImageGallery from 'containers/imageGalleryScreen';
+import ImageGalleryPreview from 'containers/imageGalleryScreen/Preview';
 
 //
 import {navigationRef, RootStackParamList} from './RootNavigation';
 //
-import {theme} from '../utils/Theme';
-import {ROUTE_LABEL, ROUTE_NAME} from '../dataConfig';
-import HeaderLeft from '../components/HeaderLeft';
+import {theme} from 'utils/Theme';
+import {ROUTE_LABEL, ROUTE_NAME} from 'dataConfig';
+import HeaderLeft from 'components/HeaderLeft';
 
 const Stack = createNativeStackNavigator();
 

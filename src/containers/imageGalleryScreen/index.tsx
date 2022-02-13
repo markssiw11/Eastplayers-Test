@@ -8,10 +8,10 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {IMAGE_GALLERY_DATA, ROUTE_NAME} from '../../dataConfig';
-import { navigate } from '../../navigation/RootNavigation';
-import {theme} from '../../utils/Theme';
-const {width, height} = Dimensions.get('screen');
+import {IMAGE_GALLERY_DATA, ROUTE_NAME} from 'dataConfig';
+import { navigate } from 'navigation/RootNavigation';
+import {theme} from 'utils/Theme';
+const {width} = Dimensions.get('screen');
  interface ItemI {
     id: string;
     image: ImageSourcePropType;

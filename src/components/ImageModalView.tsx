@@ -2,13 +2,9 @@ import React from 'react';
 import {
   Modal,
   View,
-  TouchableWithoutFeedback,
   Dimensions,
   ImageSourcePropType,
   StyleSheet,
-  Image,
-  Animated,
-  Text
 } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {IImageInfo} from 'react-native-image-zoom-viewer/built/image-viewer.type';

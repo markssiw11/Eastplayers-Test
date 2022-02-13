@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Image, StyleSheet, View} from 'react-native';
-import { ROUTE_NAME } from '../dataConfig';
-import {goBack, RootStackParamList} from '../navigation/RootNavigation';
+import { ROUTE_NAME } from 'dataConfig';
+import {goBack} from 'navigation/RootNavigation';
 
 interface HeaderLeftI {
   routeName: string;

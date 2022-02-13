@@ -9,7 +9,7 @@ import {
   Keyboard,
   TouchableOpacity,
 } from 'react-native';
-import {theme} from '../../utils/Theme';
+import {theme} from 'utils/Theme';
 
 interface TodoItemI {
   name: string;

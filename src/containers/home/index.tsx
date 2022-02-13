@@ -7,9 +7,9 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {HomeDataItemI, HOME_CIRCLE_SIZE, HOME_DATA} from '../../dataConfig';
-import {theme} from '../../utils/Theme';
-const ChevronRightImage = require('../../assets/images/chevron-right.png');
+import {HomeDataItemI, HOME_CIRCLE_SIZE, HOME_DATA} from 'dataConfig';
+import {theme} from 'utils/Theme';
+const ChevronRightImage = require('assets/images/chevron-right.png');
 
 function Home() {
   return (
