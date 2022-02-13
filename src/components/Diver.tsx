@@ -4,7 +4,7 @@ import {theme} from '../utils/Theme';
 interface DiverI {
   color?: ColorValue | undefined;
 }
-const Diver = ({color}: DiverI) => (
+const Diver = ({color = theme.colors.border}: DiverI) => (
   <View style={[styles.diver, {backgroundColor: color}]} />
 );
 

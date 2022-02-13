@@ -133,9 +133,13 @@ const styles = StyleSheet.create({
     borderRadius: theme.borderRadius.s,
     padding: theme.spacing.xs,
     flexDirection: 'row',
+    alignItems: "center",
   },
   textInput: {
     flex: 1,
+    fontSize: 14,
+    paddingVertical: 8,
+    lineHeight: 21
   },
   add: {
     color: theme.colors.primary,
